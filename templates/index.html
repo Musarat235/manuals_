@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Update Blog</title>
+    <script type='text/javascript' src="{% static 'javascript/ajax.js' %}"></script>
+</head>
+
+<body>
+    <section>
+        <div class="main_div" style="border: solid; 
+        padding: 100px; 
+        margin-top: 70px; 
+        margin-left: 50px; 
+        margin-right: 50px; 
+        border-radius: 20px; 
+        border-width: 1px; 
+        border-color: skyblue; 
+        background-color: white;">   
+            {% for j in object %}
+            <img src="/{{ BASIC_DIR }}/{{images.images}}">
+            <h1>{{j.Title}}</h1>
+            <div>{% url 'pdf_view' %}</div>
+            {% endfor %}
+
+        </div>
+        </section>         
+        <div id="wrapper">
+            <div id="header"> 
+            <h1>Welcome to eTutorialsPoint</h1> 
+            </div>
+            <div id="content"> 
+            <h2>Information</h2>
+            <p>You can view the information in detail on click the below button-</p>
+            <br/>
+            <input type='button' onclick='ajaxRequest();' value='Click Here'/>
+            <br/>
+            
+            <div id='getAjaxResponse'>
+            When you click the above button, this section changes and load PDF file.
+            </div> 
+            </div>
+            <div id="footer">
+            Copyright © 2019 etutorialspoint.com
+            </div>
+            
+            </div> 
+
+            <h1>Here is the detail information in PDF</h1>
+<iframe src="{% static 'media\manuals\Spring_2022_ISL202_1_SOL.pdf' %}" width="90%" height="500px">
+</iframe>
+</body>
+
+</html>
